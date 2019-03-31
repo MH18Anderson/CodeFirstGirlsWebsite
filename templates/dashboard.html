@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+
+<title>YOUni</title>
+
+<body class="w3-light-grey">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      line-height: 1;
+      margin: 50px;
+    }
+
+    header {
+      overflow: clear;
+      position: relative;
+    }
+
+    h2 {
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-size: 18px;
+      font-weight: 100;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+
+
+    button:first-child {
+      left: 0;
+    }
+
+    button:last-child {
+      right: 0;
+    }
+
+    table {
+      background: #fff;
+      border-collapse: collapse;
+      color: #222;
+      font-family: 'PT Sans', sans-serif;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    td:first-child {
+      border: 1px dotted #ccc;
+      color: #444;
+      line-height: 500%;
+      text-align: center;
+      white-space: nowrap;
+
+    }
+
+    td {
+      border: 1px solid #ccc;
+      color: #444;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Style inputs, select elements and textareas */
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+
+    /* Style the label to display next to the inputs */
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+
+    /* Style the submit button */
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    /* Style the container */
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      font-family: 'PT Sans', sans-serif;
+    }
+  </style>
+
+  <body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+      <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
+          class="fa fa-bars"></i>  Menu</button>
+      <span class="w3-bar-item w3-left">YOUni</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+      <div class="w3-container w3-row">
+        <div class="w3-col s8 w3-bar">
+          <span>Welcome, <strong>{{user}}</strong></span><br>
+        </div>
+      </div>
+      <hr>
+      <div class="w3-container">
+        <h5>Dashboard</h5>
+      </div>
+      <div class="w3-bar-block">
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+          onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a href="calendar.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Calendar</a>
+      </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+      title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+      <!-- Header -->
+      <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+      </header>
+      <div>
+        <header>
+          <h2>Weekly Timetable</h2>
+        </header>
+        <table>
+          <tr>
+            <td></td>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>Th</td>
+            <td>F</td>
+            <td>S</td>
+            <td>Su</td>
+          </tr>
+          <tr>
+            <td>06:00</td>
+            {% for elem in six %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>07:00</td>
+            {% for elem in seven %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>08:00</td>
+            {% for elem in eight %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>09:00</td>
+            {% for elem in nine %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>10:00</td>
+            {% for elem in ten %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>11:00</td>
+            {% for elem in eleven %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>12:00</td>
+            {% for elem in twelve %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>13:00</td>
+            {% for elem in thirteen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>14:00</td>
+            {% for elem in fourteen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>15:00</td>
+            {% for elem in fifteen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>16:00</td>
+            {% for elem in sixteen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>17:00</td>
+            {% for elem in seventeen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>18:00</td>
+            {% for elem in eighteen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>19:00</td>
+            {% for elem in nineteen %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>20:00</td>
+            {% for elem in twenty %}
+            <td>{{elem}}</td>
+            {% endfor %}
+          </tr>
+          </tr>
+        </table>
+        <div class="container">
+          <form action="/dashboard" method="post">
+            <p>
+              <label>Select day</label>
+              <select name="days">
+                <option value="0">Monday</option>
+                <option value="1">Tuesday</option>
+                <option value="2">Wednesday</option>
+                <option value="3">Thursday</option>
+                <option value="4">Friday</option>
+                <option value="5">Saturday</option>
+                <option value="6">Sunday</option>
+              </select>
+            </p>
+            <p>
+              <label>Select start time</label>
+              <select name="start_time">
+                <option value="6">6:00</option>
+                <option value="7">7:00</option>
+                <option value="8">8:00</option>
+                <option value="9">9:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+                <option value="20">20:00</option>
+              </select>
+            </p>
+            <p>
+              <label>Select end time</label>
+              <select name="end_time">
+                <option value="6">6:00</option>
+                <option value="7">7:00</option>
+                <option value="8">8:00</option>
+                <option value="9">9:00</option>
+                <option value="10">10:00</option>
+                <option value="11">11:00</option>
+                <option value="12">12:00</option>
+                <option value="13">13:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+                <option value="20">20:00</option>
+              </select>
+            </p>
+            <p>
+              <label> Event name</label>
+              <input name=event_name type="text">
+              <br>
+              <label> Event location</label>
+              <input name=event_local type="text">
+              <br>
+              <br>
+              <input type="submit" value="Create event">
+            </p>
+          </form>
+        </div>
+      </div>
+
+
+
+
+      <!-- Footer -->
+      <footer class="w3-container w3-padding-16 w3-light-grey">
+        <h4>CodeFirst: Girls 2019 </h4>
+        <p> Marie Anderson, Eve Bellers & Oliwia Jackowska</p>
+      </footer>
+
+      <!-- End page content -->
+    </div>
+
+  </body>
+
+</html>
