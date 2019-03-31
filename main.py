@@ -11,11 +11,9 @@ def login():
 def sign_up():
     form_data = request.form
     email = form_data["email"]
+    name = form_data["username"]
+    course = form_data["course"]
     send_simple_message(email)
-    return "All OK"
-
-@app.route("/dashboard")
-def hello_someone(name):
     return render_template("hello.html", name=name.title())
 
 def send_simple_message(address):
