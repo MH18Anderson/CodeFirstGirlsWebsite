@@ -160,6 +160,36 @@ def calendar_post():
         #go to dashboard.html - the explanation for all the extra items can be found in previous comments
         return render_template('dashboard.html', six=event_table[0], seven=event_table[1], eight=event_table[2], nine=event_table[3], ten=event_table[4], eleven=event_table[5], twelve=event_table[6], thirteen=event_table[7], fourteen=event_table[8], fifteen=event_table[9], sixteen=event_table[10], seventeen=event_table[11], eighteen=event_table[12], nineteen=event_table[13], twenty=event_table[14], user=app.config['NAME'])
 
+      
+      
+# will request the news articles 'Powered by NewsApi'
+@app.route('/', methods=['GET'])
+@cross_origin()
+def find_news():
+    newsapi = NewsApiClient(api_key='becec0b66fa741fb9868408992b4587a')
+
+
+    # get all articles relating to users' course
+    all_articles = newsapi.get_everything(q=str(course),
+                                         sources='bbc-news, bloomberg, business-insider-uk, financial-times',
+                                         domains='bbc.co.uk, bloomberg.com, uk.businessinsider.com, ft.com',
+                                         from_param='2019-03-01',
+                                         to='2019-03-20',
+                                         language='en',
+                                         sort_by='relevancy',
+                                         page=2)
+
+    #results = []
+
+    #for ar in all_articles:
+    #    results.append(ar)
+
+    #for i in range(len(results)):
+        # printing all trending news
+    #    print(i + 1, results[i])
+
+    return jsonify(all_articles)      
+      
 #run the app
 app.run()
 
@@ -170,5 +200,5 @@ Issues:
 2. No password
 3. No verification if the details are actually correct
 4. Calendar may look a bit ugly and lacks features such as deleting and updating or even spanning multiple weeks
-5. News feature is not integrated
+5. News feature is not fully integrated
 '''
