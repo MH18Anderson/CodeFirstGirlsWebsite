@@ -193,6 +193,23 @@ def find_news():
 #run the app
 app.run()
 
+import requests
+endpoint = "http://api.openweathermap.org/data/2.5/weather"
+payload = {"q": "Bath,UK", "units":"metric", "appid":"3227536aa5b26a0669b46b00f13dfb11"}
+response = requests.get(endpoint, params=payload)
+data = response.json()
+
+print data["main"]
+print response.url
+print response.status_code
+print response.headers["content-type"]
+print response.text
+
+temperature = data["main"]["temp"]
+name = data["name"]
+weather = data["weather"][0]["main"]
+print u"It's {}C in {}, and the sky is {}".format(temperature, name, weather)
+
 
 '''
 Issues:
